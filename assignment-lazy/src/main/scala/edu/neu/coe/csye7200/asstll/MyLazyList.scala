@@ -405,7 +405,9 @@ object MyLazyList {
     * @return a <code>ListLike[X]</code> with an infinite number of element (whose values are <code>x</code>,
     *         <code>x+step</code>, etc.).
     */
-  def from(start: Int, step: Int): ListLike[Int] = ??? // TO BE IMPLEMENTED
+  def from(start: Int, step: Int): ListLike[Int] = MyLazyList(start, () => from(start + step, step))
+  //This is an infinite loop that:
+  //If we have an element whose value is x, and the next element's value would be x + step
 
   /**
     * Construct a stream of Integers starting with <code>start</code> and with successive elements being
