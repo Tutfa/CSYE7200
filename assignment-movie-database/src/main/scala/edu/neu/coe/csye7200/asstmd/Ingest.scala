@@ -21,3 +21,4 @@ class Ingest[T: Parsable] extends (Source => Iterator[Try[T]]) {
 trait Parsable[X] {
   def parse(w: String): Try[X]
 }
+
